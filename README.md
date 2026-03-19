@@ -1,16 +1,109 @@
-# React + Vite
+# 📰 El Infiltrado — Portal de Noticias
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portal de noticias moderno construido con **React 19 + Vite + Tailwind CSS 4**, con panel de administración, transmisión en vivo, sistema de anuncios y suscripciones.
 
-Currently, two official plugins are available:
+🌐 **Sitio en vivo:** [https://raite-app-144dd.web.app](https://raite-app-144dd.web.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Arranque Rápido
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Requisitos
+- **Node.js** v18 o superior
+- **npm** v9 o superior
 
-## Expanding the ESLint configuration
+### Instalación
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/ubaldo1971/el-infiltrado.git
+cd el-infiltrado
+
+# 2. Instalar dependencias
+npm install
+
+# 3. Iniciar servidor de desarrollo
+npm run dev
+```
+
+El portal estará disponible en **http://localhost:5173/**
+
+---
+
+## 📋 Scripts Disponibles
+
+| Comando | Descripción |
+|---------|-------------|
+| `npm run dev` | Inicia el servidor de desarrollo con HMR |
+| `npm run build` | Genera el build de producción en `/dist` |
+| `npm run preview` | Previsualiza el build de producción |
+| `npm run lint` | Ejecuta ESLint para verificar el código |
+
+---
+
+## 🔥 Deploy a Firebase Hosting
+
+```bash
+# 1. Build de producción
+npm run build
+
+# 2. Deploy
+npx firebase-tools deploy --only hosting --project raite-app-144dd
+```
+
+---
+
+## 🔐 Panel de Administración
+
+Accede en: `/admin`  
+**Contraseña:** `infiltrado2026`
+
+### Funcionalidades del Admin:
+- **Dashboard** — Métricas generales del portal
+- **Suscripciones** — Gestión de suscriptores
+- **Anuncios** — Publicación y moderación de anuncios
+- **Precios** — Configuración de planes de publicidad
+- **Secciones** — Administración de secciones del portal
+- **Redacción** — Editor de artículos
+- **Canal en Vivo** — Selector de canal de noticias para la sección "En Vivo"
+
+---
+
+## 🛠️ Stack Tecnológico
+
+- **React 19** — UI con componentes funcionales
+- **Vite 7** — Build tool ultrarrápido
+- **Tailwind CSS 4** — Estilos utility-first
+- **React Router 7** — Navegación SPA
+- **Firebase Hosting** — Hosting de producción
+- **localStorage** — Persistencia de configuración del admin
+
+---
+
+## 📁 Estructura del Proyecto
+
+```
+el-infiltrado/
+├── public/              # Assets estáticos
+├── src/
+│   ├── components/      # Componentes reutilizables
+│   │   ├── Header.jsx
+│   │   ├── LiveStream.jsx    # Transmisión en vivo (YouTube)
+│   │   ├── Sidebar.jsx
+│   │   ├── SectionGrid.jsx
+│   │   └── ...
+│   ├── pages/           # Páginas principales
+│   │   ├── Home.jsx
+│   │   ├── Admin.jsx         # Panel de administración
+│   │   ├── ArticlePage.jsx
+│   │   └── ...
+│   ├── data/            # Datos y store
+│   │   ├── mockData.js
+│   │   └── store.js
+│   ├── App.jsx          # Router principal
+│   └── index.css        # Estilos globales
+├── firebase.json        # Config de Firebase Hosting
+├── .firebaserc          # Proyecto Firebase activo
+├── vite.config.js       # Config de Vite
+└── package.json
+```
