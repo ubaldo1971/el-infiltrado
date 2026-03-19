@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: var(--navy);
+  --color-navy-dark: var(--navy-dark);
+  --color-navy-light: var(--navy-light);
+  --color-accent: #c92a2a;
+  --color-accent-hover: #e03131;
+  --color-accent-dark: #a61e1e;
+  --color-surface: var(--surface);
+  --color-card: var(--card-bg);
+  --color-nav: var(--nav-bg);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border);
+  --color-white: #ffffff;
+
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+:root {
+  --navy: #1a2744;
+  --navy-dark: #0f1a2e;
+  --navy-light: #243556;
+  --surface: #f1f3f5;
+  --card-bg: #ffffff;
+  --nav-bg: #ffffff;
+  --text-primary: #212529;
+  --text-secondary: #495057;
+  --text-muted: #868e96;
+  --border: #dee2e6;
+}
+
+.dark {
+  --navy: #1e293b;
+  --navy-dark: #020617;
+  --navy-light: #334155;
+  --surface: #0f172a;
+  --card-bg: #1e293b;
+  --nav-bg: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border: #334155;
+}
+
+/* ===== Base Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text-primary);
+  background-color: var(--color-surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden; /* Evita scroll horizontal accidental */
+}
+
+/* Utilería global para contenedores con más aire */
+.container-custom {
+  max-width: 80rem; /* 1280px */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-custom {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-navy-light);
+  border-radius: 4px;
+}
+
+/* ===== Smooth scroll ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== Selection ===== */
+::selection {
+  background-color: var(--color-navy);
+  color: var(--color-white);
+}
+
+/* ===== Section Spacing ===== */
+/* Forces vertical separation between category sections */
+section[id^="section-"]+section[id^="section-"] {
+  margin-top: 3.5rem;
+  padding-top: 3.5rem;
+  border-top: 1px solid #e2e8f0;
+}
