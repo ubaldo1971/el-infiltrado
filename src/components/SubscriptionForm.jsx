@@ -4,8 +4,7 @@
  * Diseño premium con layout horizontal en desktop.
  */
 import { useState } from 'react';
-import { db } from '../firebase';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { subscriptions } from '../data/store';
 
 export default function SubscriptionForm() {
     const [formData, setFormData] = useState({
@@ -47,20 +46,10 @@ export default function SubscriptionForm() {
         e.preventDefault();
         if (!validate()) return;
         setLoading(true);
-        try {
-            await addDoc(collection(db, 'subscribers'), {
-                fullName: formData.fullName.trim(),
-                phone: formData.phone.trim(),
-                email: formData.email.trim(),
-                createdAt: serverTimestamp()
-            });
-            setSubmitted(true);
-        } catch (error) {
-            console.error("Error al guardar suscripción: ", error);
-            // Mostrar error genérico al usuario si es necesario, pero aquí lo logueamos
-        } finally {
-            setLoading(false);
-        }
+        await new Promise((r) => setTimeout(r, 1500));
+        subscriptions.add(formData);
+        setLoading(false);
+        setSubmitted(true);
     };
 
     /* ===== Estado de éxito ===== */
