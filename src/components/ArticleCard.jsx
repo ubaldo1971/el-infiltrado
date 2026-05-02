@@ -13,7 +13,7 @@ export default function ArticleCard({ article, variant = 'default' }) {
     if (variant === 'horizontal') {
         return (
             <Link to={articleUrl} className="block">
-                <article className="bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group cursor-pointer flex flex-col sm:flex-row border border-border/50">
+                <article className="bg-card rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 group cursor-pointer flex flex-col sm:flex-row">
                     {/* Image */}
                     <div className="relative w-full sm:w-48 h-44 sm:h-auto flex-shrink-0 overflow-hidden">
                         <img
@@ -33,7 +33,7 @@ export default function ArticleCard({ article, variant = 'default' }) {
                     </div>
 
                     {/* Content */}
-                    <div className="p-8 md:p-10 flex flex-col justify-between flex-1">
+                    <div className="p-6 md:p-8 flex flex-col justify-between flex-1">
                         <div>
                             <h3 className="text-base font-bold text-text-primary leading-snug mb-2 group-hover:text-accent transition-colors duration-200 line-clamp-2">
                                 {article.title}
@@ -59,7 +59,7 @@ export default function ArticleCard({ article, variant = 'default' }) {
     /* ===== Default vertical card ===== */
     return (
         <Link to={articleUrl} className="block">
-            <article className="bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group cursor-pointer flex flex-col border border-border/50">
+            <article className="bg-card rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 group cursor-pointer flex flex-col">
                 {/* Image */}
                 <div className="relative h-48 overflow-hidden">
                     <img
@@ -79,7 +79,7 @@ export default function ArticleCard({ article, variant = 'default' }) {
                 </div>
 
                 {/* Content */}
-                <div className="p-8 md:p-10 flex flex-col flex-1">
+                <div className="p-6 md:p-8 flex flex-col flex-1">
                     <h3 className="text-base font-bold text-text-primary leading-snug mb-2 group-hover:text-accent transition-colors duration-200 line-clamp-2">
                         {article.title}
                     </h3>

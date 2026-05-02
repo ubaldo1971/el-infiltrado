@@ -156,7 +156,7 @@ export default function ArticlePage() {
             <div className="max-w-4xl mx-auto px-6 md:px-10" style={{ marginTop: '-4rem', position: 'relative', zIndex: 10 }}>
                 <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
                     {/* Article header */}
-                    <div style={{ padding: '2.5rem 3rem' }}>
+                    <div className="p-6 sm:p-8 md:p-12 flex flex-col items-center text-center">
                         {/* Title */}
                         <h1
                             className="text-2xl md:text-3xl lg:text-4xl font-black text-navy leading-tight mb-6"
@@ -166,7 +166,7 @@ export default function ArticlePage() {
                         </h1>
 
                         {/* Meta info */}
-                        <div className="flex flex-wrap items-center gap-4 pb-6 border-b border-border">
+                        <div className="flex flex-wrap items-center justify-center gap-4 pb-6 border-b border-border w-full">
                             {/* Author avatar */}
                             <div className="flex items-center gap-3">
                                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-navy to-navy-light flex items-center justify-center text-white text-sm font-bold">
@@ -218,7 +218,7 @@ export default function ArticlePage() {
                     </div>
 
                     {/* Article body */}
-                    <div className="prose prose-lg max-w-none" style={{ padding: '0 3rem 2.5rem 3rem' }}>
+                    <div className="prose prose-lg max-w-none px-6 pb-8 sm:px-8 sm:pb-10 md:px-12 md:pb-12">
                         {/* Lead paragraph (excerpt) */}
                         <p className="text-lg text-text-secondary leading-relaxed font-medium mb-6" style={{ borderLeft: '4px solid var(--color-accent)', paddingLeft: '1.25rem' }}>
                             {article.excerpt}
@@ -262,7 +262,7 @@ export default function ArticlePage() {
                     </div>
 
                     {/* Article footer with share buttons */}
-                    <div className="border-t border-border" style={{ padding: '1.5rem 3rem' }}>
+                    <div className="border-t border-border p-6 sm:p-8 md:px-12 md:py-6">
                         <div className="flex items-center justify-between flex-wrap gap-3">
                             <div className="flex items-center gap-2 text-xs text-text-muted">
                                 <span className="font-semibold text-text-secondary">Compartir:</span>

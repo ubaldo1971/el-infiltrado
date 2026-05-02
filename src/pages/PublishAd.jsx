@@ -166,14 +166,14 @@ export default function PublishAd() {
     /* ── Estado de éxito ── */
     if (success) {
         return (
-            <div className="min-h-screen bg-surface flex items-center justify-center p-4">
-                <div className="bg-white rounded-3xl shadow-xl p-14 md:p-16 max-w-md text-center">
-                    <div className="w-20 h-20 mx-auto mb-6 bg-green-100 rounded-full flex items-center justify-center">
-                        <svg className="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="min-h-screen bg-navy-dark flex items-center justify-center p-4">
+                <div className="bg-navy rounded-3xl shadow-xl p-14 md:p-16 max-w-md text-center border border-white/5">
+                    <div className="w-20 h-20 mx-auto mb-6 bg-green-500/10 rounded-full flex items-center justify-center">
+                        <svg className="w-10 h-10 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                         </svg>
                     </div>
-                    <h2 className="text-2xl font-black text-navy mb-2" style={{ fontFamily: 'var(--font-heading)' }}>
+                    <h2 className="text-2xl font-black text-white mb-2" style={{ fontFamily: 'var(--font-heading)' }}>
                         ¡Anuncio Enviado!
                     </h2>
                     <p className="text-text-muted text-sm mb-6">
@@ -191,7 +191,7 @@ export default function PublishAd() {
     }
 
     return (
-        <div className="min-h-screen bg-surface">
+        <div className="min-h-screen bg-navy-dark">
             {/* Header bar */}
             <div className="bg-navy text-white">
                 <div className="max-w-5xl mx-auto px-6 md:px-12 lg:px-16 py-5 flex items-center justify-between">
@@ -210,9 +210,9 @@ export default function PublishAd() {
                 <form onSubmit={handleSubmit} className="space-y-10">
 
                     {/* ══ SECCIÓN 1: Fotos ══ */}
-                    <div className="bg-white rounded-2xl shadow-sm" style={{ padding: '2rem 3rem' }}>
-                        <h3 className="text-lg font-bold text-navy mb-2">📷 Fotos del Anuncio</h3>
-                        <p className="text-text-muted text-sm mb-6">Máximo {MAX_PHOTOS} fotos, 5 MB cada una. Formatos: JPG, PNG, WebP.</p>
+                    <div className="bg-navy rounded-2xl shadow-lg border border-white/5" style={{ padding: '2rem 3rem' }}>
+                        <h3 className="text-lg font-bold text-white mb-2">📷 Fotos del Anuncio</h3>
+                        <p className="text-white/60 text-sm mb-6">Máximo {MAX_PHOTOS} fotos, 5 MB cada una. Formatos: JPG, PNG, WebP.</p>
 
                         {/* Drop zone */}
                         <div
@@ -226,8 +226,8 @@ export default function PublishAd() {
                 ${dragging
                                     ? 'border-accent bg-accent/5 scale-[1.02]'
                                     : errors.photos
-                                        ? 'border-red-400 bg-red-50'
-                                        : 'border-border hover:border-navy/40 hover:bg-surface'
+                                        ? 'border-red-400 bg-red-500/10'
+                                        : 'border-white/20 hover:border-white/40 hover:bg-white/5'
                                 }
               `}
                         >
@@ -239,13 +239,13 @@ export default function PublishAd() {
                                 className="hidden"
                                 onChange={(e) => processFiles(Array.from(e.target.files))}
                             />
-                            <svg className="w-12 h-12 mx-auto mb-3 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-12 h-12 mx-auto mb-3 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                             </svg>
-                            <p className="text-sm font-semibold text-text-secondary">
+                            <p className="text-sm font-semibold text-white/80">
                                 Arrastra tus fotos aquí o <span className="text-accent underline">selecciona archivos</span>
                             </p>
-                            <p className="text-xs text-text-muted mt-1">{photos.length}/{MAX_PHOTOS} fotos</p>
+                            <p className="text-xs text-white/50 mt-1">{photos.length}/{MAX_PHOTOS} fotos</p>
                         </div>
                         {errors.photos && <p className="mt-2 text-red-500 text-xs">{errors.photos}</p>}
 
@@ -269,90 +269,90 @@ export default function PublishAd() {
                     </div>
 
                     {/* ══ SECCIÓN 2: Información del anuncio ══ */}
-                    <div className="bg-white rounded-2xl shadow-sm" style={{ padding: '2rem 3rem' }}>
-                        <h3 className="text-lg font-bold text-navy" style={{ marginBottom: '1.5rem' }}>📝 Información del Anuncio</h3>
+                    <div className="bg-navy rounded-2xl shadow-lg border border-white/5" style={{ padding: '2rem 3rem' }}>
+                        <h3 className="text-lg font-bold text-white" style={{ marginBottom: '1.5rem' }}>📝 Información del Anuncio</h3>
                         <div className="space-y-7">
                             <div>
-                                <label className="block text-sm font-semibold text-text-secondary" style={{ marginBottom: '0.5rem' }}>Título del Anuncio</label>
+                                <label className="block text-sm font-semibold text-white/80" style={{ marginBottom: '0.5rem' }}>Título del Anuncio</label>
                                 <input name="title" value={form.title} onChange={handleChange} placeholder="Ej: Venta de auto seminuevo..."
-                                    className={`w-full px-5 py-3.5 rounded-xl border text-sm outline-none transition-all focus:ring-2 focus:ring-accent/20 ${errors.title ? 'border-red-400' : 'border-border focus:border-accent'}`}
+                                    className={`w-full px-5 py-3.5 rounded-xl border bg-navy-dark text-white text-sm outline-none transition-all focus:ring-2 focus:ring-accent/20 ${errors.title ? 'border-red-400' : 'border-white/20 focus:border-accent'}`}
                                 />
-                                {errors.title && <p className="mt-1 text-red-500 text-xs">{errors.title}</p>}
+                                {errors.title && <p className="mt-1 text-red-400 text-xs">{errors.title}</p>}
                             </div>
                             <div>
-                                <label className="block text-sm font-semibold text-text-secondary" style={{ marginBottom: '0.5rem' }}>Descripción</label>
+                                <label className="block text-sm font-semibold text-white/80" style={{ marginBottom: '0.5rem' }}>Descripción</label>
                                 <textarea name="description" value={form.description} onChange={handleChange} rows={15} placeholder="Describe tu anuncio con el mayor detalle posible..."
-                                    className={`w-full px-5 py-3.5 rounded-xl border text-sm outline-none transition-all resize-none focus:ring-2 focus:ring-accent/20 ${errors.description ? 'border-red-400' : 'border-border focus:border-accent'}`}
+                                    className={`w-full px-5 py-3.5 rounded-xl border bg-navy-dark text-white text-sm outline-none transition-all resize-none focus:ring-2 focus:ring-accent/20 ${errors.description ? 'border-red-400' : 'border-white/20 focus:border-accent'}`}
                                 />
-                                {errors.description && <p className="mt-1 text-red-500 text-xs">{errors.description}</p>}
+                                {errors.description && <p className="mt-1 text-red-400 text-xs">{errors.description}</p>}
                             </div>
                         </div>
                     </div>
 
                     {/* ══ SECCIÓN 3: Datos del publicador ══ */}
-                    <div className="bg-white rounded-2xl shadow-sm" style={{ padding: '2rem 3rem' }}>
-                        <h3 className="text-lg font-bold text-navy" style={{ marginBottom: '1.5rem' }}>👤 Datos del Anunciante</h3>
+                    <div className="bg-navy rounded-2xl shadow-lg border border-white/5" style={{ padding: '2rem 3rem' }}>
+                        <h3 className="text-lg font-bold text-white" style={{ marginBottom: '1.5rem' }}>👤 Datos del Anunciante</h3>
                         <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: '1.5rem' }}>
                             <div>
-                                <label className="block text-sm font-semibold text-text-secondary" style={{ marginBottom: '0.5rem' }}>Nombre Completo</label>
+                                <label className="block text-sm font-semibold text-white/80" style={{ marginBottom: '0.5rem' }}>Nombre Completo</label>
                                 <input name="publisherName" value={form.publisherName} onChange={handleChange} placeholder="Tu nombre"
-                                    className={`w-full px-5 py-3.5 rounded-xl border text-sm outline-none transition-all focus:ring-2 focus:ring-accent/20 ${errors.publisherName ? 'border-red-400' : 'border-border focus:border-accent'}`}
+                                    className={`w-full px-5 py-3.5 rounded-xl border bg-navy-dark text-white text-sm outline-none transition-all focus:ring-2 focus:ring-accent/20 ${errors.publisherName ? 'border-red-400' : 'border-white/20 focus:border-accent'}`}
                                 />
-                                {errors.publisherName && <p className="mt-1 text-red-500 text-xs">{errors.publisherName}</p>}
+                                {errors.publisherName && <p className="mt-1 text-red-400 text-xs">{errors.publisherName}</p>}
                             </div>
                             <div>
-                                <label className="block text-sm font-semibold text-text-secondary" style={{ marginBottom: '0.5rem' }}>Teléfono (10 dígitos)</label>
+                                <label className="block text-sm font-semibold text-white/80" style={{ marginBottom: '0.5rem' }}>Teléfono (10 dígitos)</label>
                                 <input name="publisherPhone" value={form.publisherPhone} onChange={handleChange} placeholder="6621234567" maxLength={10}
-                                    className={`w-full px-5 py-3.5 rounded-xl border text-sm outline-none transition-all focus:ring-2 focus:ring-accent/20 ${errors.publisherPhone ? 'border-red-400' : form.publisherPhone.length === 10 ? 'border-green-400' : 'border-border focus:border-accent'}`}
+                                    className={`w-full px-5 py-3.5 rounded-xl border bg-navy-dark text-white text-sm outline-none transition-all focus:ring-2 focus:ring-accent/20 ${errors.publisherPhone ? 'border-red-400' : form.publisherPhone.length === 10 ? 'border-green-400' : 'border-white/20 focus:border-accent'}`}
                                 />
-                                {errors.publisherPhone && <p className="mt-1 text-red-500 text-xs">{errors.publisherPhone}</p>}
+                                {errors.publisherPhone && <p className="mt-1 text-red-400 text-xs">{errors.publisherPhone}</p>}
                             </div>
                             <div>
-                                <label className="block text-sm font-semibold text-text-secondary" style={{ marginBottom: '0.5rem' }}>Email</label>
+                                <label className="block text-sm font-semibold text-white/80" style={{ marginBottom: '0.5rem' }}>Email</label>
                                 <input name="publisherEmail" value={form.publisherEmail} onChange={handleChange} placeholder="correo@ejemplo.com"
-                                    className={`w-full px-5 py-3.5 rounded-xl border text-sm outline-none transition-all focus:ring-2 focus:ring-accent/20 ${errors.publisherEmail ? 'border-red-400' : 'border-border focus:border-accent'}`}
+                                    className={`w-full px-5 py-3.5 rounded-xl border bg-navy-dark text-white text-sm outline-none transition-all focus:ring-2 focus:ring-accent/20 ${errors.publisherEmail ? 'border-red-400' : 'border-white/20 focus:border-accent'}`}
                                 />
-                                {errors.publisherEmail && <p className="mt-1 text-red-500 text-xs">{errors.publisherEmail}</p>}
+                                {errors.publisherEmail && <p className="mt-1 text-red-400 text-xs">{errors.publisherEmail}</p>}
                             </div>
                         </div>
 
                         {/* Redes Sociales del Anunciante */}
                         <div className="grid grid-cols-1 md:grid-cols-3 mt-6" style={{ gap: '1.5rem' }}>
                             <div>
-                                <label className="flex items-center gap-2 text-sm font-semibold text-text-secondary" style={{ marginBottom: '0.5rem' }}>
-                                    <svg className="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg>
+                                <label className="flex items-center gap-2 text-sm font-semibold text-white/80" style={{ marginBottom: '0.5rem' }}>
+                                    <svg className="w-4 h-4 text-blue-500" fill="currentColor" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg>
                                     Facebook (Opcional)
                                 </label>
                                 <input name="facebookUrl" value={form.facebookUrl} onChange={handleChange} placeholder="https://facebook.com/..."
-                                    className="w-full px-5 py-3.5 rounded-xl border border-border text-sm outline-none transition-all focus:ring-2 focus:ring-accent/20 focus:border-accent"
+                                    className="w-full px-5 py-3.5 rounded-xl border border-white/20 bg-navy-dark text-white text-sm outline-none transition-all focus:ring-2 focus:ring-accent/20 focus:border-accent"
                                 />
                             </div>
                             <div>
-                                <label className="flex items-center gap-2 text-sm font-semibold text-text-secondary" style={{ marginBottom: '0.5rem' }}>
-                                    <svg className="w-4 h-4 text-black" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                                <label className="flex items-center gap-2 text-sm font-semibold text-white/80" style={{ marginBottom: '0.5rem' }}>
+                                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                                     X / Twitter (Opcional)
                                 </label>
                                 <input name="twitterUrl" value={form.twitterUrl} onChange={handleChange} placeholder="https://x.com/..."
-                                    className="w-full px-5 py-3.5 rounded-xl border border-border text-sm outline-none transition-all focus:ring-2 focus:ring-accent/20 focus:border-accent"
+                                    className="w-full px-5 py-3.5 rounded-xl border border-white/20 bg-navy-dark text-white text-sm outline-none transition-all focus:ring-2 focus:ring-accent/20 focus:border-accent"
                                 />
                             </div>
                             <div>
-                                <label className="flex items-center gap-2 text-sm font-semibold text-text-secondary" style={{ marginBottom: '0.5rem' }}>
-                                    <svg className="w-4 h-4 text-pink-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                                <label className="flex items-center gap-2 text-sm font-semibold text-white/80" style={{ marginBottom: '0.5rem' }}>
+                                    <svg className="w-4 h-4 text-pink-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
                                     Instagram (Opcional)
                                 </label>
                                 <input name="instagramUrl" value={form.instagramUrl} onChange={handleChange} placeholder="https://instagram.com/..."
-                                    className="w-full px-5 py-3.5 rounded-xl border border-border text-sm outline-none transition-all focus:ring-2 focus:ring-accent/20 focus:border-accent"
+                                    className="w-full px-5 py-3.5 rounded-xl border border-white/20 bg-navy-dark text-white text-sm outline-none transition-all focus:ring-2 focus:ring-accent/20 focus:border-accent"
                                 />
                             </div>
                         </div>
                     </div>
 
                     {/* ══ SECCIÓN 4: Ubicación del anuncio ══ */}
-                    <div className="bg-white rounded-2xl shadow-sm" style={{ padding: '2rem 3rem' }}>
-                        <h3 className="text-lg font-bold text-navy mb-2">📍 ¿Dónde publicar tu anuncio?</h3>
-                        <p className="text-text-muted text-sm mb-6">El precio varía según la sección. El Hero es la posición con mayor visibilidad.</p>
-                        {errors.section && <p className="mb-3 text-red-500 text-xs">{errors.section}</p>}
+                    <div className="bg-navy rounded-2xl shadow-lg border border-white/5" style={{ padding: '2rem 3rem' }}>
+                        <h3 className="text-lg font-bold text-white mb-2">📍 ¿Dónde publicar tu anuncio?</h3>
+                        <p className="text-white/60 text-sm mb-6">El precio varía según la sección. El Hero es la posición con mayor visibilidad.</p>
+                        {errors.section && <p className="mb-3 text-red-400 text-xs">{errors.section}</p>}
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                             {sections.map((section) => (
                                 <button
@@ -363,7 +363,7 @@ export default function PublishAd() {
                                         relative rounded-xl border-2 text-left transition-all duration-200
                                         ${selectedSection === section.id
                                             ? 'border-accent bg-accent/5 shadow-lg shadow-accent/10'
-                                            : 'border-border hover:border-navy/30 hover:shadow-md'
+                                            : 'border-white/10 hover:border-white/30 hover:bg-white/5'
                                         }
                                         ${section.key === 'hero' ? 'ring-2 ring-amber-400/30' : ''}
                                     `}
@@ -377,12 +377,12 @@ export default function PublishAd() {
                                         </div>
                                     )}
                                     <div className="flex items-center justify-between mb-2">
-                                        <p className="text-sm font-bold text-navy">{section.name}</p>
+                                        <p className="text-sm font-bold text-white">{section.name}</p>
                                         {section.key === 'hero' && (
-                                            <span className="px-2 py-0.5 bg-amber-100 text-amber-700 text-[10px] font-black uppercase rounded-full">Premium</span>
+                                            <span className="px-2 py-0.5 bg-amber-500/20 text-amber-400 text-[10px] font-black uppercase rounded-full">Premium</span>
                                         )}
                                     </div>
-                                    <p className="text-xs text-text-muted mb-3">{section.description}</p>
+                                    <p className="text-xs text-white/50 mb-3">{section.description}</p>
                                     <p className="text-xs font-bold text-accent">×{section.multiplier} sobre precio base</p>
                                 </button>
                             ))}
@@ -390,9 +390,9 @@ export default function PublishAd() {
                     </div>
 
                     {/* ══ SECCIÓN 5: Plan de duración ══ */}
-                    <div className="bg-white rounded-2xl shadow-sm" style={{ padding: '2rem 3rem' }}>
-                        <h3 className="text-lg font-bold text-navy mb-6">💳 Plan de Duración</h3>
-                        {errors.plan && <p className="mb-3 text-red-500 text-xs">{errors.plan}</p>}
+                    <div className="bg-navy rounded-2xl shadow-lg border border-white/5" style={{ padding: '2rem 3rem' }}>
+                        <h3 className="text-lg font-bold text-white mb-6">💳 Plan de Duración</h3>
+                        {errors.plan && <p className="mb-3 text-red-400 text-xs">{errors.plan}</p>}
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
                             {plans.map((plan) => {
                                 const section = sections.find((s) => s.id === selectedSection);
@@ -406,7 +406,7 @@ export default function PublishAd() {
                                             relative rounded-2xl border-2 text-center transition-all duration-200 group
                                             ${selectedPlan === plan.id
                                                 ? 'border-accent bg-accent/5 shadow-lg shadow-accent/10'
-                                                : 'border-border hover:border-navy/30 hover:shadow-md'
+                                                : 'border-white/10 hover:border-white/30 hover:bg-white/5'
                                             }
                                         `}
                                         style={{ padding: '1.5rem' }}
@@ -418,11 +418,11 @@ export default function PublishAd() {
                                                 </svg>
                                             </div>
                                         )}
-                                        <p className="text-sm font-bold text-navy">{plan.name}</p>
+                                        <p className="text-sm font-bold text-white">{plan.name}</p>
                                         <p className="text-2xl font-black text-accent mt-2">${adjustedPrice.toLocaleString()}</p>
-                                        <p className="text-xs text-text-muted mt-2">{plan.currency}</p>
+                                        <p className="text-xs text-white/50 mt-2">{plan.currency}</p>
                                         {section && section.multiplier !== 1 && (
-                                            <p className="text-[10px] text-text-muted mt-2 line-through">${plan.price.toLocaleString()} base</p>
+                                            <p className="text-[10px] text-white/30 mt-2 line-through">${plan.price.toLocaleString()} base</p>
                                         )}
                                     </button>
                                 );
@@ -431,10 +431,10 @@ export default function PublishAd() {
 
                         {/* Resumen de precio */}
                         {getTotal() && (
-                            <div className="mt-6 p-6 bg-navy/5 rounded-xl border border-navy/10 flex items-center justify-between">
+                            <div className="mt-6 p-6 bg-navy-dark/50 rounded-xl border border-white/5 flex items-center justify-between">
                                 <div>
-                                    <p className="text-sm font-bold text-navy">Total a pagar</p>
-                                    <p className="text-xs text-text-muted">
+                                    <p className="text-sm font-bold text-white">Total a pagar</p>
+                                    <p className="text-xs text-white/50">
                                         {plans.find((p) => p.id === selectedPlan)?.name} • {sections.find((s) => s.id === selectedSection)?.name}
                                     </p>
                                 </div>
@@ -443,32 +443,32 @@ export default function PublishAd() {
                         )}
                     </div>
 
-                    {/* ══ SECCIÓN 5: Descargo de responsabilidad ══ */}
-                    <div className="bg-white rounded-2xl shadow-sm" style={{ padding: '2rem 3rem' }}>
-                        <h3 className="text-lg font-bold text-navy mb-4">⚖️ Descargo de Responsabilidad</h3>
-                        <div className="bg-surface rounded-xl p-5 mb-5 text-xs text-text-secondary leading-relaxed max-h-36 overflow-y-auto">
-                            <p className="mb-2">Al publicar este anuncio en El Infiltrado, el anunciante declara y acepta que:</p>
+                    {/* ══ SECCIÓN 6: Descargo de responsabilidad ══ */}
+                    <div className="bg-navy rounded-2xl shadow-lg border border-white/5" style={{ padding: '2rem 3rem' }}>
+                        <h3 className="text-lg font-bold text-white mb-4">⚖️ Descargo de Responsabilidad</h3>
+                        <div className="bg-navy-dark rounded-xl p-5 mb-5 text-xs text-white/60 leading-relaxed max-h-36 overflow-y-auto">
+                            <p className="mb-2">Al publicar este anuncio en Radar360, el anunciante declara y acepta que:</p>
                             <ol className="list-decimal list-inside space-y-1">
                                 <li>El contenido publicado es responsabilidad exclusiva del anunciante.</li>
-                                <li>El Infiltrado no se hace responsable por la veracidad, exactitud o legalidad del contenido publicado.</li>
+                                <li>Radar360 no se hace responsable por la veracidad, exactitud o legalidad del contenido publicado.</li>
                                 <li>El anunciante garantiza tener los derechos sobre las imágenes y textos proporcionados.</li>
-                                <li>El Infiltrado se reserva el derecho de rechazar, modificar o retirar cualquier anuncio sin previo aviso.</li>
+                                <li>Radar360 se reserva el derecho de rechazar, modificar o retirar cualquier anuncio sin previo aviso.</li>
                                 <li>El pago realizado no es reembolsable una vez que el anuncio ha sido publicado.</li>
-                                <li>El anunciante exime a El Infiltrado de cualquier responsabilidad legal derivada del contenido publicado.</li>
+                                <li>El anunciante exime a Radar360 de cualquier responsabilidad legal derivada del contenido publicado.</li>
                             </ol>
                         </div>
-                        <label className={`flex items-start gap-3 cursor-pointer group ${errors.disclaimer ? 'text-red-500' : ''}`}>
+                        <label className={`flex items-start gap-3 cursor-pointer group ${errors.disclaimer ? 'text-red-400' : ''}`}>
                             <input
                                 type="checkbox"
                                 checked={disclaimer}
                                 onChange={(e) => { setDisclaimer(e.target.checked); if (errors.disclaimer) setErrors((p) => ({ ...p, disclaimer: '' })); }}
-                                className="mt-0.5 w-5 h-5 rounded border-border text-accent focus:ring-accent"
+                                className="mt-0.5 w-5 h-5 rounded border-white/20 bg-navy-dark text-accent focus:ring-accent"
                             />
-                            <span className="text-sm text-text-secondary group-hover:text-navy transition-colors">
-                                He leído y acepto el descargo de responsabilidad de <strong>El Infiltrado</strong>.
+                            <span className="text-sm text-white/70 group-hover:text-white transition-colors">
+                                He leído y acepto el descargo de responsabilidad de <strong>Radar360</strong>.
                             </span>
                         </label>
-                        {errors.disclaimer && <p className="mt-1 text-red-500 text-xs">{errors.disclaimer}</p>}
+                        {errors.disclaimer && <p className="mt-1 text-red-400 text-xs">{errors.disclaimer}</p>}
                     </div>
 
                     {/* ══ Botón de envío ══ */}
@@ -492,7 +492,7 @@ export default function PublishAd() {
                                 </>
                             )}
                         </button>
-                        <button type="button" onClick={() => navigate('/')} className="text-text-muted text-sm hover:text-navy transition-colors">
+                        <button type="button" onClick={() => navigate('/')} className="text-white/60 text-sm hover:text-white transition-colors">
                             Cancelar
                         </button>
                     </div>

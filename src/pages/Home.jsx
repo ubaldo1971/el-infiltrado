@@ -75,10 +75,10 @@ export default function Home() {
                     {/* Columna principal */}
                     <div className="lg:col-span-2">
                         {/* Encabezado */}
-                        <div className="flex items-center gap-3 mb-10">
-                            <div className="w-1.5 h-8 bg-accent rounded-full" />
+                        <div className="flex items-center gap-4 mb-12">
+                            <div className="flex-1 h-px bg-border/50" />
                             <h2
-                                className="text-xl md:text-2xl font-black text-text-primary uppercase tracking-wide"
+                                className="text-xl md:text-2xl font-black text-text-primary uppercase tracking-wide text-center"
                                 style={{ fontFamily: 'var(--font-heading)' }}
                             >
                                 Últimas Noticias
@@ -112,17 +112,17 @@ export default function Home() {
           BLOQUE 3 — Secciones por Categoría
           ══════════════════════════════════════════ */}
             <div className="bg-surface border-t border-border/50">
-                <div className="container-custom py-28 md:py-36">
-                    <div style={{ marginBottom: '100px' }}>
+                <div className="container-custom py-28 md:py-36 space-y-24 md:space-y-32">
+                    <div>
                         <SectionGrid id="section-politics" title="Política" articles={politicsArticles} />
                     </div>
-                    <div style={{ marginBottom: '100px' }}>
+                    <div>
                         <SectionGrid id="section-economy" title="Economía" articles={economyArticles} />
                     </div>
-                    <div style={{ marginBottom: '100px' }}>
+                    <div>
                         <SectionGrid id="section-sports" title="Deportes" articles={sportsArticles} />
                     </div>
-                    <div style={{ marginBottom: '100px' }}>
+                    <div>
                         <SectionGrid id="section-technology" title="Tecnología" articles={techArticles} />
                     </div>
                     <div>
